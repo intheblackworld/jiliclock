@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh_TW"">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.png">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <!--SEO meta-->
+    <meta
+      name="title"
+      content="<%= htmlWebpackPlugin.options.metaTitle %>"
+    />
+    <meta
+      name="description"
+      content="<%= htmlWebpackPlugin.options.metaDescription %>"
+    />
+    <meta
+      name="keywords"
+      content="<%= htmlWebpackPlugin.options.metaKeywords %>"
+    />
+    <meta
+      property="og:title"
+      content="<%= htmlWebpackPlugin.options.ogMetaTitle %>"
+    />
+    <meta property="og:type" content="<%= htmlWebpackPlugin.options.ogMetaType %>" />
+    <meta
+      property="og:description"
+      content="<%= htmlWebpackPlugin.options.ogMetaDescription %>"
+    />
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but vue-house doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.2&appId=542185515968935&autoLogAppEvents=1"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" async defer>
+    </script> 
+    <script src='//scdn.line-apps.com/n/line_it/thirdparty/loader.min.js' async='async' defer='defer'></script>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+
+    <!-- built files will be auto injected -->
+  </body>
+</html>
