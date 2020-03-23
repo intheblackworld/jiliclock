@@ -8,11 +8,13 @@
       <div class="content">
         <div class="main-video">
           <iframe
-            :src="`https://www.youtube.com/embed/${'20UCkr8C5j8'}`"
+            :src="`https://www.youtube.com/embed/${video_id}?cc_load_policy=1&enablejsapi=1&modestbranding=1&rel=0&controls=0`"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
+          <!-- 配置參考 -->
+          <!-- https://developers.google.com/youtube/player_parameters?hl=zh-cn#cc_load_policy -->
         </div>
         <div class="from">影片出處：xxx</div>
         <div class="share">
@@ -43,7 +45,7 @@
               @click="goVideo(index)"
             >
               <img
-                v-lazy="require('@/projects/clock/s2/test_img_2.jpeg')"
+                v-lazy="require('@/projects/clock/s2/test_img_2.jpg')"
                 alt=""
               >
             </div>
@@ -76,10 +78,9 @@
   </div>
 </template>
 <style lang="scss" scoped>
-@import '@/assets/style/variableColor.scss';
-
+@import '@/assets/style/function.scss';
 .bg {
-  background: #fff;
+  background: #010101;
 }
 .container {
   width: 1080px;
@@ -87,7 +88,7 @@
   margin: 0 auto;
   position: relative;
   padding: 120px 20px 40px 0;
-  background: #fff;
+  background: #111;
   // box-shadow: 0 0 80px 0 rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: space-between;
@@ -112,7 +113,7 @@
 
 .from {
   font-size: 18px;
-  color: #333;
+  color: #ccc;
   margin: 20px 0 30px 60px;
   text-align: left;
 }
@@ -129,7 +130,7 @@
 
   .list-title {
     font-size: 20px;
-    color: #333;
+    color: #ccc;
     text-align: left;
     margin-bottom: 24px;
   }
@@ -140,7 +141,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    background: #222;
     margin-left: 10%;
   }
 
@@ -162,19 +163,20 @@
 
   .video-title {
     font-size: 20px;
-    color: #333;
+    color: #ccc;
     margin-bottom: 20px;
   }
 
   .video-desc {
     font-size: 16px;
-    color: #666;
+    color: #cecece;
   }
 
   .video-date {
     position: absolute;
     right: 10px;
     bottom: 10px;
+    color: #ccc;
   }
 }
 
@@ -182,15 +184,15 @@
   width: 100%;
   height: 200px;
   line-height: 200px;
-  border: 1px solid #000;
-  color: #000;
+  background: #333;
+  color: #fff;
   margin-bottom: 25px;
 }
 
 .rank {
   .rank-title {
     font-size: 32px;
-    color: #783030;
+    color: #a01e1e;
     margin-top: 30px;
     margin-bottom: 30px;
   }
@@ -198,6 +200,7 @@
   .rank-list {
     width: 100%;
     padding: 30px 15px 15px;
+    background: #333;
     box-shadow: 0 2px 4px rgba(0,0,0,.5);
   }
 
@@ -210,22 +213,68 @@
 
   .item-index {
     font-size: 32px;
-    color: #783030;
+    color: #a01e1e;
   }
 
   .item-title {
-    font-size: 18px;
-    color: #333;
+    font-size: 16px;
+    color: #ccc;
+    text-align: left;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .thanks {
-    a {
-      .img,
-      .img-hover {
-        width: 90vw;
-      }
+  .container {
+    width: 100vw;
+    padding: 120px 0px 40px 0
+  }
+
+  .side {
+    display: none;
+  }
+  .main-video {
+    width: 100vw;
+    height: size-m(218);
+  }
+
+  .from {
+    margin: 20px 0 30px 20px
+  }
+  .list-title {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .video-list {
+    width: 100%;
+    padding-left: 0;
+    .video-item {
+      position: relative;
+      margin: 20px auto;
+    }
+    .video-avatar {
+      width: 100%;
+    }
+    .video-content {
+      position: absolute;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background:rgba(0, 0, 0, 0.4);
+    }
+
+    .video-title {
+      font-size: size-m(20);
+      color: #fff;
+      margin-top: 30px;
+    }
+
+    .video-desc {
+      font-size: size-m(14);
+    }
+
+    .video-date {
+      font-size: size-m(14);
     }
   }
 }
@@ -256,9 +305,9 @@ export default {
   },
 
   computed: {
-    // video_id() {
-    //   return this.$route.params.video_id
-    // }
+    video_id() {
+      return this.$route.params.id
+    }
   },
 
   mounted() {

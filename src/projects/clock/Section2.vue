@@ -22,11 +22,11 @@
                 @click="goVideo('20UCkr8C5j8')"
               >
                 <img
-                  v-lazy="require('./s2/test_img_2.jpeg')"
+                  v-lazy="require('./s2/test_img_2.jpg')"
                   alt=""
                 >
               </div>
-              <div class="video-content">
+              <div class="video-content" @click="goVideo('20UCkr8C5j8')">
                 <div class="video-title">贏家 - 最激勵影片</div>
                 <div class="video-desc">xxxxxx....</div>
                 <div class="video-date">2020-03-22</div>
@@ -42,11 +42,12 @@
   </div>
 </template>
 <style lang="scss" scoped>
+@import '@/assets/style/function.scss';
 .bg {
   background-size: cover;
   background-position: center;
   position: relative;
-  background-color: #fff;
+  background-color: #101010;
 }
 
 .container {
@@ -55,13 +56,13 @@
   margin: 0 auto;
   position: relative;
   padding: 40px;
-  background: #fff;
+  background: #111;
   box-shadow: 0 0 80px 0 rgba(0, 0, 0, 0.2);
 }
 
 .title {
   font-size: 36px;
-  color: #333;
+  color: #ccc;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -77,7 +78,7 @@
 }
 
 .item {
-  color: #333;
+  color: #ccc;
   font-size: 20px;
   cursor: pointer;
 }
@@ -87,7 +88,7 @@
 
   .list-title {
     font-size: 20px;
-    color: #333;
+    color: #ccc;
     margin-bottom: 24px;
   }
 
@@ -97,7 +98,8 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    background: #222;
+    // border: 1px solid #eee;
   }
 
   .video-avatar {
@@ -126,19 +128,20 @@
 
   .video-title {
     font-size: 20px;
-    color: #333;
+    color: #ccc;
     margin-bottom: 20px;
   }
 
   .video-desc {
     font-size: 16px;
-    color: #666;
+    color: #cecece;
   }
 
   .video-date {
     position: absolute;
     right: 10px;
     bottom: 10px;
+    color: #ccc;
   }
 }
 
@@ -149,6 +152,7 @@
 
 .acc-enter {
   width: 25%;
+  color: #ccc;
 }
 
 @media only screen and (max-width: 1280px) and (min-width: 1025px) {
@@ -165,6 +169,55 @@
 }
 
 @media screen and (max-width: 767px) {
+  .container {
+    width: 100vw;
+    padding: 20px;
+  }
+
+  .title {
+    font-size: size-m(20)
+  }
+
+  .tab {
+    .item {
+      font-size: size-m(16)
+    }
+  }
+
+  .video-list {
+    width: 100%;
+    .video-item {
+      position: relative;
+    }
+    .video-avatar {
+      width: 100%;
+    }
+    .video-content {
+      position: absolute;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background:rgba(0, 0, 0, 0.4);
+    }
+
+    .video-title {
+      font-size: size-m(20);
+      color: #fff;
+      margin-top: 30px;
+    }
+
+    .video-desc {
+      font-size: size-m(14);
+    }
+
+    .video-date {
+      font-size: size-m(14);
+    }
+  }
+
+  .acc-enter {
+    display: none;
+  }
 }
 </style>
 <script>

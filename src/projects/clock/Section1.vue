@@ -108,7 +108,7 @@
   box-shadow: 0 0 0 3px #fff;
   margin-top: 30px;
   cursor: pointer;
-  transition: all .4s;
+  transition: all 0.4s;
 
   &:hover {
     color: #333;
@@ -131,7 +131,44 @@
 
 @media screen and (max-width: 767px) {
   .bg {
-    height: size_m(1161);
+    // height: 100vh;
+  }
+  .container {
+    width: 100vw;
+    display: block;
+  }
+
+  .content {
+    width: 90vw;
+    margin: 0 auto;
+  }
+
+  .content-btn {
+    width: 100%;
+    position: relative;
+    top: 50%;
+    display: block;
+  }
+
+  .btn {
+    width: 50vw;
+    margin: 20px auto;
+  }
+
+  .title {
+    font-size: size-m(32);
+    text-align: left;
+    margin-bottom: 20px;
+  }
+
+  .subtitle {
+    font-size: size-m(19);
+    text-align: left;
+    margin-bottom: 20px;
+  }
+
+  .desc {
+    font-size: size-m(15);
   }
 }
 </style>
