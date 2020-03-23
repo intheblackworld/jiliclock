@@ -34,7 +34,9 @@
             </div>
           </div>
           <div class="acc-enter">
-            設定鬧鐘
+            <div class="block">
+              設定鬧鐘
+            </div>
           </div>
         </div>
       </div>
@@ -153,6 +155,17 @@
 .acc-enter {
   width: 25%;
   color: #ccc;
+}
+
+.block {
+  width: 90%;
+  height: 200px;
+  line-height: 200px;
+  background: #333;
+  color: #fff;
+  margin-top: 45px;
+  margin-left: 10%;
+  margin-bottom: 25px;
 }
 
 @media only screen and (max-width: 1280px) and (min-width: 1025px) {
